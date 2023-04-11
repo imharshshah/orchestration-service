@@ -1,4 +1,4 @@
-package com.hotstar.orchestration.orchestrationservice;
+package com.hotstar.orchestration;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
