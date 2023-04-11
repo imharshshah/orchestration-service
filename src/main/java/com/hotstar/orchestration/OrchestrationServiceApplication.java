@@ -29,22 +29,28 @@ public class OrchestrationServiceApplication {
 			ResultSet tableResultSet = metadata.getTables(null, null, "%", types);
 
 			JSONObject schema = new JSONObject();
+			JSONArray tablesArray = new JSONArray();
 
 			while (tableResultSet.next()) {
 				String tableName = tableResultSet.getString("TABLE_NAME");
 				ResultSet columnResultSet = metadata.getColumns(null, null, tableName, null);
 
 				JSONObject table = new JSONObject();
+				table.put("table_name",tableName);
+
+				JSONArray columnsArray = new JSONArray();
 				while (columnResultSet.next()) {
 					String columnName = columnResultSet.getString("COLUMN_NAME");
 					String columnType = columnResultSet.getString("TYPE_NAME");
 					int columnSize = columnResultSet.getInt("COLUMN_SIZE");
 
 					JSONObject column = new JSONObject();
+					column.put("column_name",columnName);
 					column.put("type", columnType);
 					column.put("size", columnSize);
 
-					table.put(columnName, column);
+					columnsArray.add(column);
+					table.put("columns", columnsArray);
 				}
 
 				ResultSet fkResultSet = metadata.getImportedKeys(null, null, tableName);
@@ -64,7 +70,9 @@ public class OrchestrationServiceApplication {
 				}
 
 				table.put("foreign_keys", fks);
-				schema.put(tableName, table);
+
+				tablesArray.add(table);
+				schema.put("tables", tablesArray);
 			}
 
 			try (FileWriter writer = new FileWriter("payments_schema.json")) {
@@ -90,22 +98,27 @@ public class OrchestrationServiceApplication {
 			ResultSet tableResultSet = metadata.getTables(null, null, "%", types);
 
 			JSONObject schema = new JSONObject();
+			JSONArray tablesArray = new JSONArray();
 
 			while (tableResultSet.next()) {
 				String tableName = tableResultSet.getString("TABLE_NAME");
 				ResultSet columnResultSet = metadata.getColumns(null, null, tableName, null);
 
 				JSONObject table = new JSONObject();
+				JSONArray columnsArray = new JSONArray();
 				while (columnResultSet.next()) {
 					String columnName = columnResultSet.getString("COLUMN_NAME");
 					String columnType = columnResultSet.getString("TYPE_NAME");
 					int columnSize = columnResultSet.getInt("COLUMN_SIZE");
 
 					JSONObject column = new JSONObject();
+					column.put("column_name",columnName);
 					column.put("type", columnType);
 					column.put("size", columnSize);
 
-					table.put(columnName, column);
+					columnsArray.add(column);
+
+					table.put("columns", columnsArray);
 				}
 
 				ResultSet fkResultSet = metadata.getImportedKeys(null, null, tableName);
@@ -123,9 +136,10 @@ public class OrchestrationServiceApplication {
 
 					fks.add(fk);
 				}
-
 				table.put("foreign_keys", fks);
-				schema.put(tableName, table);
+				table.put("table_name", tableName);
+				tablesArray.add(table);
+				schema.put("tables", tablesArray);
 			}
 
 			try (FileWriter writer = new FileWriter("subscription_schema.json")) {
