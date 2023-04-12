@@ -6,4 +6,5 @@ import lombok.Data;
 public class ForeignKey {
     String fk_column;
     String pk_table;
+    String pk_column;
 }

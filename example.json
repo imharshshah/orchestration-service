@@ -1,0 +1,40 @@
+[
+        {
+        "table_name": "table1",
+        "columns": [
+          {"name": "col1", "type": "int"},
+          {"name": "col2", "type": "varchar(50)"}
+        ],
+        "foreignKeys": [
+          {"pk_column": "fk1", "fk_column": "col1", "pk_table": "table2"}
+        ]
+      },
+      {
+        "table_name": "table2",
+        "columns": [
+          {"name": "col1", "type": "int"},
+          {"name": "col2", "type": "varchar(50)"}
+        ],
+        "foreignKeys": [
+          {"pk_column": "fk1", "fk_column": "col1", "pk_table": "table3"}
+        ]
+      },
+      {
+        "table_name": "table3",
+        "columns": [
+          {"name": "col1", "type": "int"},
+          {"name": "col2", "type": "varchar(50)"}
+        ],
+        "foreignKeys": [
+          {"pk_column": "fk1", "fk_column": "col1", "pk_table": "table4"}
+        ]
+      },
+      {
+        "table_name": "table4",
+        "columns": [
+          {"name": "col1", "type": "int"},
+          {"name": "col2", "type": "varchar(50)"}
+        ],
+        "foreignKeys": []
+      }
+]
