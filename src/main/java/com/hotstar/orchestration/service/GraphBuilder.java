@@ -6,5 +6,5 @@ import java.util.Map;
 import com.hotstar.orchestration.models.Table;
 
 public interface GraphBuilder {
-    public Map<String, List<String>> build(List<Table> tables);
+    public Map<String, Map<String,String>> build(List<Table> tables);
 }

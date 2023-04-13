@@ -15,13 +15,13 @@ import com.hotstar.orchestration.service.GraphBuilder;
 public class GraphBuilderImpl implements GraphBuilder {
 
     @Override
-    public Map<String, List<String>> build(List<Table> tables) {
-        Map<String, List<String>> graph = new HashMap<>();
+    public Map<String, Map<String,String>> build(List<Table> tables) {
+        Map<String, Map<String,String>> graph = new HashMap<>();
         for(Table table: tables){
             String tableName = table.getTable_name();
-            List<String> foreignKeys = new ArrayList<>();
+            Map<String,String> foreignKeys = new HashMap<>();
             for(ForeignKey foreignKey:table.getForeignKeys()){
-                foreignKeys.add(foreignKey.getPk_table());
+                foreignKeys.put(foreignKey.getPk_table(),foreignKey.getFk_column());
             }
             graph.put(tableName,foreignKeys);
         }

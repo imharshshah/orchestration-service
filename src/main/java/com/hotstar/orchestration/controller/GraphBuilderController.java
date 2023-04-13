@@ -25,16 +25,16 @@ public class GraphBuilderController {
     JsonParser jsonParser;
 
     @GetMapping("/payments")
-    public Map<String, List<String>> buildGraph() throws IOException{
+    public Map<String, Map<String,String>> buildGraph() throws IOException{
         List<Table> tables = jsonParser.parse("payments_schema.json");
-        Map<String,List<String>> graph = graphBuilder.build(tables);
+        Map<String,Map<String,String>> graph = graphBuilder.build(tables);
         return graph;
     }
 
     @GetMapping("/subscriptions")
-    public Map<String, List<String>> build() throws IOException{
+    public Map<String, Map<String,String>> build() throws IOException{
         List<Table> tables = jsonParser.parse("subscription_schema.json");
-        Map<String,List<String>> graph = graphBuilder.build(tables);
+        Map<String,Map<String,String>> graph = graphBuilder.build(tables);
         return graph;
     }
 
