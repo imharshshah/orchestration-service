@@ -32,7 +32,6 @@ public class OrchestrationServiceApplication {
 			ResultSet tableResultSet = metadata.getTables(null, null, "%", types);
 
 			JSONArray schemaArray = new JSONArray();
-		//	JSONArray tablesArray = new JSONArray();
 
 			while (tableResultSet.next()) {
 				String tableName = tableResultSet.getString("TABLE_NAME");
@@ -99,14 +98,14 @@ public class OrchestrationServiceApplication {
 			String[] types = {"TABLE"};
 			ResultSet tableResultSet = metadata.getTables(null, null, "%", types);
 
-			JSONObject schema = new JSONObject();
-			JSONArray tablesArray = new JSONArray();
+			JSONArray schemaArray = new JSONArray();
 
 			while (tableResultSet.next()) {
 				String tableName = tableResultSet.getString("TABLE_NAME");
 				ResultSet columnResultSet = metadata.getColumns(null, null, tableName, null);
 
 				JSONObject table = new JSONObject();
+				table.put("table_name",tableName);
 				JSONArray columnsArray = new JSONArray();
 				while (columnResultSet.next()) {
 					String columnName = columnResultSet.getString("COLUMN_NAME");
@@ -114,7 +113,7 @@ public class OrchestrationServiceApplication {
 					int columnSize = columnResultSet.getInt("COLUMN_SIZE");
 
 					JSONObject column = new JSONObject();
-					column.put("column_name",columnName);
+					column.put("name",columnName);
 					column.put("type", columnType);
 					column.put("size", columnSize);
 
@@ -138,14 +137,12 @@ public class OrchestrationServiceApplication {
 
 					fks.add(fk);
 				}
-				table.put("foreign_keys", fks);
-				table.put("table_name", tableName);
-				tablesArray.add(table);
-				schema.put("tables", tablesArray);
+				table.put("foreignKeys", fks);
+				schemaArray.add(table);
 			}
 
 			try (FileWriter writer = new FileWriter("subscription_schema.json")) {
-				writer.write(schema.toString());
+				writer.write(schemaArray.toString());
 			}
 
 		} catch (SQLException e) {
