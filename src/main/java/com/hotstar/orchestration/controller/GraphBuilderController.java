@@ -26,7 +26,7 @@ public class GraphBuilderController {
 
     @GetMapping("/buildgraph")
     public Map<String, List<String>> buildGraph() throws IOException{
-        List<Table> tables = jsonParser.parse("example.json");
+        List<Table> tables = jsonParser.parse("payments_schema.json");
         Map<String,List<String>> graph = graphBuilder.build(tables);
         return graph;
     }

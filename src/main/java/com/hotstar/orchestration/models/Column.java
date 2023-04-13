@@ -6,4 +6,5 @@ import lombok.Data;
 public class Column {
     String name;
     String type;
+    String size;
 }
