@@ -66,6 +66,14 @@ public class GraphBuilderController {
         return edges;
     }
 
+
+    @GetMapping("/find_edge_path_subscriptions")
+    public List<String> findEdgePathSubscriptions() throws IOException{
+        List<Table> tables = jsonParser.parse("subscription_schema.json");
+        Map<String,Map<String,String>> graph = graphBuilder.build(tables);
+        List<String> edges = pathFinderEdge.findEdgePath(graph, "orders", "subscriptions");
+        return edges;
+    }
     
 
 }
