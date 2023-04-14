@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hotstar.orchestration.models.Table;
 import com.hotstar.orchestration.service.GraphBuilder;
 import com.hotstar.orchestration.service.JsonParser;
+import com.hotstar.orchestration.service.PathFinderEdge;
 import com.hotstar.orchestration.service.PathFinderNode;
 
 import lombok.AllArgsConstructor;
@@ -25,6 +26,7 @@ public class GraphBuilderController {
     GraphBuilder graphBuilder;
     JsonParser jsonParser;
     PathFinderNode pathFinderNode;
+    PathFinderEdge pathFinderEdge;
 
     @GetMapping("/build_payments_graph")
     public Map<String, Map<String,String>> buildGraphPayments() throws IOException{
@@ -54,6 +56,14 @@ public class GraphBuilderController {
         Map<String,Map<String,String>> graph = graphBuilder.build(tables);
         List<String> path = pathFinderNode.findNodePath(graph, "orders", "subscriptions");
         return path;
+    }
+
+    @GetMapping("/find_edge_path_payments")
+    public List<String> findEdgePathPayments() throws IOException{
+        List<Table> tables = jsonParser.parse("payments_schema.json");
+        Map<String,Map<String,String>> graph = graphBuilder.build(tables);
+        List<String> edges = pathFinderEdge.findEdgePath(graph, "charges", "customers");
+        return edges;
     }
 
     
