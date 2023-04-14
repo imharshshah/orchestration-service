@@ -15,7 +15,7 @@ import com.hotstar.orchestration.service.PathFinderNode;
 public class PathFinderNodeImpl implements PathFinderNode {
 
     @Override
-    public List<String> findPath(Map<String, Map<String, String>> graph, String source, String destination) {
+    public List<String> findNodePath(Map<String, Map<String, String>> graph, String source, String destination) {
         Queue<String> queue = new LinkedList<>();
         Map<String,String> parent = new HashMap<>();
         queue.add(source);

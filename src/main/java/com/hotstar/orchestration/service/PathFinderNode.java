@@ -5,6 +5,6 @@ import java.util.Map;
 
 public interface PathFinderNode {
 
-    public List<String> findPath(Map<String,Map<String,String>> graph, String source, String destination);
+    public List<String> findNodePath(Map<String,Map<String,String>> graph, String source, String destination);
     
 }

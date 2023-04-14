@@ -40,19 +40,19 @@ public class GraphBuilderController {
         return graph;
     }
 
-    @GetMapping("/find_path_payments")
-    public List<String> findPathPayments() throws IOException{
+    @GetMapping("/find_node_path_payments")
+    public List<String> findNodePathPayments() throws IOException{
         List<Table> tables = jsonParser.parse("payments_schema.json");
         Map<String,Map<String,String>> graph = graphBuilder.build(tables);
-        List<String> path = pathFinderNode.findPath(graph,"charges","customers");
+        List<String> path = pathFinderNode.findNodePath(graph,"charges","customers");
         return path;
     }
 
-    @GetMapping("/find_path_subscriptions")
-    public List<String> findPathSubscriptions() throws IOException{
+    @GetMapping("/find_node_path_subscriptions")
+    public List<String> findNodePathSubscriptions() throws IOException{
         List<Table> tables = jsonParser.parse("subscription_schema.json");
         Map<String,Map<String,String>> graph = graphBuilder.build(tables);
-        List<String> path = pathFinderNode.findPath(graph, "orders", "subscriptions");
+        List<String> path = pathFinderNode.findNodePath(graph, "orders", "subscriptions");
         return path;
     }
 
