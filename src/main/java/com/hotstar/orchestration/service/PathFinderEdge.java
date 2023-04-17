@@ -5,6 +5,6 @@ import java.util.Map;
 
 public interface PathFinderEdge {
 
-    public List<String> findEdgePath(Map<String,Map<String,String>> graph, String source, String destination);
+    public List<Map<String,String>> findEdgePath(Map<String,Map<String,Map<String,String>>> graph, String source, String destination);
     
 }

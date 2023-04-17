@@ -6,6 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
+import java.util.Map.Entry;
 
 import org.springframework.stereotype.Service;
 
@@ -15,10 +16,10 @@ import com.hotstar.orchestration.service.PathFinderEdge;
 public class PathFinderEdgeImpl implements PathFinderEdge {
 
     @Override
-    public List<String> findEdgePath(Map<String, Map<String, String>> graph, String source, String destination) {
+    public List<Map<String,String>> findEdgePath(Map<String, Map<String, Map<String,String>>> graph, String source, String destination) {
         Queue<String> queue = new LinkedList<>();
         Map<String,String> parent = new HashMap<>();
-        Map<String,String> edge = new HashMap<>();
+        Map<String,Map<String,String>> edgeInfo = new HashMap<>();
 
         queue.add(source);
         parent.put(source,null);
@@ -29,12 +30,12 @@ public class PathFinderEdgeImpl implements PathFinderEdge {
             if(current.equals(destination)){
                 break;
             }
-            for(Map.Entry<String,String> entry: graph.get(current).entrySet()){
+            for(Entry<String, Map<String, String>> entry: graph.get(current).entrySet()){
                 String neighbor = entry.getKey();
                 if(!parent.containsKey(neighbor)){
                     queue.add(neighbor);
                     parent.put(neighbor,current);
-                    edge.put(neighbor,entry.getValue());
+                    edgeInfo.put(neighbor,entry.getValue());
                 }
             }
         }
@@ -43,13 +44,19 @@ public class PathFinderEdgeImpl implements PathFinderEdge {
             return null;
         }
 
-        List<String> edges = new ArrayList<>();
+        List<Map<String,String>> edges = new ArrayList<>();
 
         String current = destination;
         while(current!=null){
             String parentOfCurrent = parent.get(current);
             if(parentOfCurrent!=null){
-                edges.add(0, edge.get(current));
+                Map<String,String> edge = new HashMap<>();
+                Map<String,String> edgeData = edgeInfo.get(current);
+                edge.put("pk_column",edgeData.get("pk_column"));
+                edge.put("fk_column",edgeData.get("fk_column"));
+                edge.put("is_embedded",edgeData.get("is_embedded"));
+
+                edges.add(0, edge);
             }
             current = parentOfCurrent;
         }

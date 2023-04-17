@@ -6,6 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
+import java.util.Map.Entry;
 
 import org.springframework.stereotype.Service;
 
@@ -15,7 +16,7 @@ import com.hotstar.orchestration.service.PathFinderNode;
 public class PathFinderNodeImpl implements PathFinderNode {
 
     @Override
-    public List<String> findNodePath(Map<String, Map<String, String>> graph, String source, String destination) {
+    public List<String> findNodePath(Map<String, Map<String, Map<String,String>>> graph, String source, String destination) {
         Queue<String> queue = new LinkedList<>();
         Map<String,String> parent = new HashMap<>();
         queue.add(source);
@@ -26,7 +27,7 @@ public class PathFinderNodeImpl implements PathFinderNode {
             if(current.equals(destination)){
                 break;
             }
-            for(Map.Entry<String,String> entry : graph.get(current).entrySet()){
+            for(Entry<String, Map<String, String>> entry : graph.get(current).entrySet()){
                 String neighbor = entry.getKey();
                 if(!parent.containsKey(neighbor)){
                     queue.add(neighbor);

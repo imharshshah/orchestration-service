@@ -14,13 +14,17 @@ import com.hotstar.orchestration.service.GraphBuilder;
 public class GraphBuilderImpl implements GraphBuilder {
 
     @Override
-    public Map<String, Map<String,String>> build(List<Table> tables) {
-        Map<String, Map<String,String>> graph = new HashMap<>();
+    public Map<String, Map<String,Map<String,String>>> build(List<Table> tables) {
+        Map<String, Map<String,Map<String,String>>> graph = new HashMap<>();
         for(Table table: tables){
             String tableName = table.getTable_name();
-            Map<String,String> foreignKeys = new HashMap<>();
+            Map<String,Map<String,String>> foreignKeys = new HashMap<>();
             for(ForeignKey foreignKey:table.getForeignKeys()){
-                foreignKeys.put(foreignKey.getPk_table(),foreignKey.getFk_column());
+                Map<String,String> foreignKeyMap = new HashMap<>();
+                foreignKeyMap.put("fk_column",foreignKey.getFk_column());
+                foreignKeyMap.put("pk_column",foreignKey.getPk_column());
+                foreignKeyMap.put("is_embedded","true");
+                foreignKeys.put(foreignKey.getPk_table(),foreignKeyMap);
             }
             graph.put(tableName,foreignKeys);
         }

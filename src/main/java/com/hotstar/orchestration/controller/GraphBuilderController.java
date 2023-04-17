@@ -29,30 +29,30 @@ public class GraphBuilderController {
     PathFinderEdge pathFinderEdge;
 
     @GetMapping("/build_payments_graph")
-    public Map<String, Map<String,String>> buildGraphPayments() throws IOException{
+    public Map<String, Map<String, Map<String, String>>> buildGraphPayments() throws IOException{
         List<Table> tables = jsonParser.parse("payments_schema.json");
-        Map<String,Map<String,String>> graph = graphBuilder.build(tables);
+        Map<String, Map<String, Map<String, String>>> graph = graphBuilder.build(tables);
         return graph;
     }
 
     @GetMapping("/build_subscriptions_graph")
-    public Map<String, Map<String,String>> buildGraphSubscriptions() throws IOException{
+    public Map<String, Map<String, Map<String, String>>> buildGraphSubscriptions() throws IOException{
         List<Table> tables = jsonParser.parse("subscription_schema.json");
-        Map<String,Map<String,String>> graph = graphBuilder.build(tables);
+        Map<String, Map<String, Map<String, String>>> graph = graphBuilder.build(tables);
         return graph;
     }
 
     @GetMapping("/build_combined_graph")
-    public Map<String, Map<String,String>> buildGraphCombined() throws IOException{
+    public Map<String, Map<String, Map<String, String>>> buildGraphCombined() throws IOException{
         List<Table> tables = jsonParser.parse("Combined_schema.json");
-        Map<String,Map<String,String>> graph=graphBuilder.build(tables);
+        Map<String, Map<String, Map<String, String>>> graph=graphBuilder.build(tables);
         return graph;
     }
     
     @GetMapping("/find_node_path_payments")
     public List<String> findNodePathPayments() throws IOException{
         List<Table> tables = jsonParser.parse("payments_schema.json");
-        Map<String,Map<String,String>> graph = graphBuilder.build(tables);
+        Map<String, Map<String, Map<String, String>>> graph = graphBuilder.build(tables);
         List<String> path = pathFinderNode.findNodePath(graph,"charges","customers");
         return path;
     }
@@ -60,7 +60,7 @@ public class GraphBuilderController {
     @GetMapping("/find_node_path_combined")
     public List<String> findNodePathCombined() throws IOException{
         List<Table> tables = jsonParser.parse("Combined_schema.json");
-        Map<String,Map<String,String>> graph = graphBuilder.build(tables);
+        Map<String, Map<String, Map<String, String>>> graph = graphBuilder.build(tables);
         List<String> path = pathFinderNode.findNodePath(graph, "charges", "subscriptions");
         return path;
     }
@@ -68,32 +68,32 @@ public class GraphBuilderController {
     @GetMapping("/find_node_path_subscriptions")
     public List<String> findNodePathSubscriptions() throws IOException{
         List<Table> tables = jsonParser.parse("subscription_schema.json");
-        Map<String,Map<String,String>> graph = graphBuilder.build(tables);
+        Map<String, Map<String, Map<String, String>>> graph = graphBuilder.build(tables);
         List<String> path = pathFinderNode.findNodePath(graph, "orders", "subscriptions");
         return path;
     }
 
     @GetMapping("/find_edge_path_payments")
-    public List<String> findEdgePathPayments() throws IOException{
+    public List<Map<String, String>> findEdgePathPayments() throws IOException{
         List<Table> tables = jsonParser.parse("payments_schema.json");
-        Map<String,Map<String,String>> graph = graphBuilder.build(tables);
-        List<String> edges = pathFinderEdge.findEdgePath(graph, "charges", "customers");
+        Map<String, Map<String, Map<String, String>>> graph = graphBuilder.build(tables);
+        List<Map<String, String>> edges = pathFinderEdge.findEdgePath(graph, "charges", "customers");
         return edges;
     }
 
     @GetMapping("/find_edge_path_subscriptions")
-    public List<String> findEdgePathSubscriptions() throws IOException{
+    public List<Map<String, String>> findEdgePathSubscriptions() throws IOException{
         List<Table> tables = jsonParser.parse("subscription_schema.json");
-        Map<String,Map<String,String>> graph = graphBuilder.build(tables);
-        List<String> edges = pathFinderEdge.findEdgePath(graph, "orders", "subscriptions");
+        Map<String, Map<String, Map<String, String>>> graph = graphBuilder.build(tables);
+        List<Map<String, String>> edges = pathFinderEdge.findEdgePath(graph, "orders", "subscriptions");
         return edges;
     }
 
     @GetMapping("/find_edge_path_combined")
-    public List<String> findEdgePathCombined() throws IOException{
+    public List<Map<String, String>> findEdgePathCombined() throws IOException{
         List<Table> tables = jsonParser.parse("Combined_schema.json");
-        Map<String,Map<String,String>> graph = graphBuilder.build(tables);
-        List<String> edges = pathFinderEdge.findEdgePath(graph, "charges", "subscriptions");
+        Map<String, Map<String, Map<String, String>>> graph = graphBuilder.build(tables);
+        List<Map<String, String>> edges = pathFinderEdge.findEdgePath(graph, "charges", "subscriptions");
         return edges;
     }
     
