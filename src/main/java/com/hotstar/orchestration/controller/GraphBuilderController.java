@@ -46,6 +46,14 @@ public class GraphBuilderController {
     public Map<String, Map<String, Map<String, String>>> buildGraphCombined() throws IOException{
         List<Table> tables = jsonParser.parse("Combined_schema.json");
         Map<String, Map<String, Map<String, String>>> graph=graphBuilder.build(tables);
+        graph.get("charges").get("orders").put("is_embedded","false");
+        return graph;
+    }
+
+    @GetMapping("/build_example_graph")
+    public Map<String,Map<String,Map<String,String>>> buildGraphExample() throws IOException{
+        List<Table> tables = jsonParser.parse("example.json");
+        Map<String,Map<String,Map<String,String>>> graph = graphBuilder.build(tables);
         return graph;
     }
     
@@ -93,6 +101,7 @@ public class GraphBuilderController {
     public List<Map<String, String>> findEdgePathCombined() throws IOException{
         List<Table> tables = jsonParser.parse("Combined_schema.json");
         Map<String, Map<String, Map<String, String>>> graph = graphBuilder.build(tables);
+        graph.get("charges").get("orders").put("is_embedded","false");
         List<Map<String, String>> edges = pathFinderEdge.findEdgePath(graph, "charges", "subscriptions");
         return edges;
     }
