@@ -58,26 +58,27 @@ public class GraphBuilderController {
     }
     
     @GetMapping("/find_node_path_payments")
-    public List<String> findNodePathPayments() throws IOException{
+    public List<List<String>> findNodePathPayments() throws IOException{
         List<Table> tables = jsonParser.parse("payments_schema.json");
         Map<String, Map<String, Map<String, String>>> graph = graphBuilder.build(tables);
-        List<String> path = pathFinderNode.findNodePath(graph,"charges","customers");
+        List<List<String>> path = pathFinderNode.findNodePath(graph,"charges","customers");
         return path;
     }
 
     @GetMapping("/find_node_path_combined")
-    public List<String> findNodePathCombined() throws IOException{
+    public List<List<String>> findNodePathCombined() throws IOException{
         List<Table> tables = jsonParser.parse("Combined_schema.json");
         Map<String, Map<String, Map<String, String>>> graph = graphBuilder.build(tables);
-        List<String> path = pathFinderNode.findNodePath(graph, "charges", "subscriptions");
+        graph.get("charges").get("orders").put("is_embedded","false");
+        List<List<String>> path = pathFinderNode.findNodePath(graph, "charges", "subscriptions");
         return path;
     }
 
     @GetMapping("/find_node_path_subscriptions")
-    public List<String> findNodePathSubscriptions() throws IOException{
+    public List<List<String>> findNodePathSubscriptions() throws IOException{
         List<Table> tables = jsonParser.parse("subscription_schema.json");
         Map<String, Map<String, Map<String, String>>> graph = graphBuilder.build(tables);
-        List<String> path = pathFinderNode.findNodePath(graph, "orders", "subscriptions");
+        List<List<String>> path = pathFinderNode.findNodePath(graph, "orders", "subscriptions");
         return path;
     }
 

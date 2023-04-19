@@ -16,7 +16,7 @@ import com.hotstar.orchestration.service.PathFinderNode;
 public class PathFinderNodeImpl implements PathFinderNode {
 
     @Override
-    public List<String> findNodePath(Map<String, Map<String, Map<String,String>>> graph, String source, String destination) {
+    public List<List<String>> findNodePath(Map<String, Map<String, Map<String,String>>> graph, String source, String destination) {
         Queue<String> queue = new LinkedList<>();
         Map<String,String> parent = new HashMap<>();
         queue.add(source);
@@ -47,7 +47,22 @@ public class PathFinderNodeImpl implements PathFinderNode {
             current=parent.get(current);
         }
 
-        return path;
+        List<List<String>> paths = new ArrayList<>();
+        List<String> temp = new ArrayList<>();
+        temp.add(source);
+        for(int i=0;i<path.size()-1;i++){
+            if(graph.get(path.get(i)).get(path.get(i + 1)).get("is_embedded").equals("true")){
+                temp.add(path.get(i+1));
+            }
+            else{
+                paths.add(new ArrayList<>(temp));
+                temp.clear();
+                temp.add(path.get(i+1));
+            }
+        }
+        paths.add(temp);
+
+        return paths;
     }
     
 }
