@@ -1,1 +1,3609 @@
-[{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":255,"name":"api_key","type":"VARCHAR"},{"size":255,"name":"client_api_key","type":"VARCHAR"},{"size":255,"name":"client_end_point","type":"VARCHAR"},{"size":255,"name":"partner","type":"VARCHAR"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"accounts"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":255,"name":"partner_subscription_id","type":"VARCHAR"},{"size":255,"name":"ref_subscription_id","type":"VARCHAR"},{"size":255,"name":"status","type":"VARCHAR"},{"size":19,"name":"updated_on","type":"DATETIME"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"act_partner_subscriptions"},{"foreignKeys":[{"fk_column":"ref_subscription_id","pk_table":"subscriptions","pk_column":"id"}],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":255,"name":"status","type":"VARCHAR"},{"size":19,"name":"updated_on","type":"DATETIME"},{"size":255,"name":"ref_subscription_id","type":"VARCHAR"},{"size":255,"name":"partner_subscription_id","type":"VARCHAR"},{"size":19,"name":"expiry_date","type":"DATETIME"},{"size":19,"name":"start_date","type":"DATETIME"},{"size":255,"name":"subscriber_id","type":"VARCHAR"},{"size":4096,"name":"token","type":"VARCHAR"},{"size":4096,"name":"callback_endpoint","type":"VARCHAR"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"airtel_partner_subscriptions"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":4096,"name":"callback_endpoint","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":255,"name":"partner_subscription_id","type":"VARCHAR"},{"size":255,"name":"ref_subscription_id","type":"VARCHAR"},{"size":255,"name":"status","type":"VARCHAR"},{"size":19,"name":"updated_on","type":"DATETIME"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"airteldthpartner_subscriptions"},{"foreignKeys":[],"columns":[{"size":10,"name":"hour","type":"INT"},{"size":10,"name":"enable_partners","type":"INT"}],"table_name":"alerts"},{"foreignKeys":[{"fk_column":"pricing_plan_id","pk_table":"pricing_plans","pk_column":"id"}],"columns":[{"size":255,"name":"platform","type":"VARCHAR"},{"size":255,"name":"payment_mode","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":1,"name":"is_enabled","type":"BIT"},{"size":19,"name":"updated_on","type":"DATETIME"},{"size":255,"name":"pricing_plan_id","type":"VARCHAR"}],"table_name":"allowed_payment_methods"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":255,"name":"apple_product_id","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":19,"name":"expiry_date","type":"DATETIME"},{"size":255,"name":"is_trial_period","type":"VARCHAR"},{"size":255,"name":"last_transaction_id","type":"VARCHAR"},{"size":255,"name":"partner_subscription_id","type":"VARCHAR"},{"size":2147483647,"name":"receipt","type":"LONGTEXT"},{"size":255,"name":"ref_subscription_id","type":"VARCHAR"},{"size":255,"name":"status","type":"VARCHAR"},{"size":19,"name":"updated_on","type":"DATETIME"},{"size":255,"name":"country","type":"VARCHAR"},{"size":255,"name":"renew_partner_plan_id","type":"VARCHAR"}],"table_name":"apple_partner_subscriptions"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":19,"name":"updated_on","type":"DATETIME"},{"size":255,"name":"status","type":"VARCHAR"},{"size":19,"name":"next_retry_on","type":"DATETIME"},{"size":255,"name":"order_id","type":"VARCHAR"},{"size":10,"name":"total_attempts","type":"INT"},{"size":10,"name":"max_attempts","type":"INT"},{"size":10,"name":"country","type":"VARCHAR"},{"size":65535,"name":"meta","type":"TEXT"}],"table_name":"billing_attempts"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":255,"name":"meta","type":"VARCHAR"},{"size":255,"name":"partner_subscription_id","type":"VARCHAR"},{"size":255,"name":"ref_subscription_id","type":"VARCHAR"},{"size":255,"name":"status","type":"VARCHAR"},{"size":19,"name":"updated_on","type":"DATETIME"},{"size":255,"name":"zone","type":"VARCHAR"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"bsnl_partner_subscriptions"},{"foreignKeys":[{"fk_column":"subscription_id","pk_table":"subscriptions","pk_column":"id"},{"fk_column":"order_id","pk_table":"orders","pk_column":"id"}],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":255,"name":"cancel_reason","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":19,"name":"updated_on","type":"DATETIME"},{"size":255,"name":"order_id","type":"VARCHAR"},{"size":255,"name":"subscription_id","type":"VARCHAR"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"cancel_orders"},{"foreignKeys":[],"columns":[{"size":255,"name":"client_metakey","type":"VARCHAR"},{"size":65535,"name":"client_metavalue","type":"TEXT"}],"table_name":"clients_pricing_plans_meta"},{"foreignKeys":[],"columns":[{"size":31,"name":"config_type","type":"VARCHAR"},{"size":19,"name":"id","type":"BIGINT"},{"size":1,"name":"enabled","type":"BIT"},{"size":255,"name":"pricing_plan","type":"VARCHAR"},{"size":255,"name":"country","type":"VARCHAR"}],"table_name":"communication_configuration"},{"foreignKeys":[{"fk_column":"communication_template_id","pk_table":"communication_template","pk_column":"id"},{"fk_column":"communication_configuration_id","pk_table":"communication_configuration","pk_column":"id"}],"columns":[{"size":19,"name":"communication_configuration_id","type":"BIGINT"},{"size":255,"name":"communication_template_id","type":"VARCHAR"}],"table_name":"communication_configuration_template"},{"foreignKeys":[],"columns":[{"size":19,"name":"id","type":"BIGINT"},{"size":50,"name":"from_state","type":"VARCHAR"},{"size":50,"name":"to_state","type":"VARCHAR"},{"size":50,"name":"event","type":"VARCHAR"},{"size":50,"name":"plan_type","type":"VARCHAR"},{"size":255,"name":"notification_types","type":"VARCHAR"},{"size":255,"name":"message_type","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":19,"name":"updated_on","type":"DATETIME"},{"size":1,"name":"enabled","type":"BIT"}],"table_name":"communication_mappings"},{"foreignKeys":[{"fk_column":"communication_template_meta_id","pk_table":"communication_template_meta","pk_column":"id"}],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":255,"name":"country_code","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":255,"name":"message_type","type":"VARCHAR"},{"size":255,"name":"notification_type","type":"VARCHAR"},{"size":19,"name":"updated_on","type":"DATETIME"},{"size":255,"name":"communication_template_meta_id","type":"VARCHAR"},{"size":1,"name":"enabled","type":"BIT"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"communication_template"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":2048,"name":"attributes","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":255,"name":"path","type":"VARCHAR"},{"size":19,"name":"updated_on","type":"DATETIME"}],"table_name":"communication_template_meta"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":255,"name":"amount_off_currency","type":"VARCHAR"},{"size":19,"name":"amount_off_value","type":"BIGINT"},{"size":255,"name":"country","type":"VARCHAR"},{"size":255,"name":"coupon_category","type":"VARCHAR"},{"size":255,"name":"coupon_type","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":255,"name":"duration_type","type":"VARCHAR"},{"size":19,"name":"extension_date","type":"DATETIME"},{"size":10,"name":"extension_days","type":"INT"},{"size":10,"name":"max_redemptions","type":"INT"},{"size":255,"name":"name","type":"VARCHAR"},{"size":10,"name":"percent_off","type":"INT"},{"size":19,"name":"redeem_by","type":"DATETIME"},{"size":255,"name":"status","type":"VARCHAR"},{"size":10,"name":"times_redeemed","type":"INT"},{"size":19,"name":"updated_on","type":"DATETIME"}],"table_name":"coupons"},{"foreignKeys":[{"fk_column":"coupon_id","pk_table":"coupons","pk_column":"id"}],"columns":[{"size":255,"name":"coupon_id","type":"VARCHAR"},{"size":2147483647,"name":"meta","type":"LONGTEXT"},{"size":19,"name":"updated_on","type":"DATETIME"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"coupons_meta"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":1,"name":"acknowledgement","type":"BIT"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":65535,"name":"exception","type":"TEXT"},{"size":255,"name":"hid","type":"VARCHAR"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"data_sync_failures"},{"foreignKeys":[],"columns":[{"size":64,"name":"id","type":"VARCHAR"},{"size":32,"name":"type","type":"VARCHAR"},{"size":2048,"name":"data","type":"VARCHAR"}],"table_name":"dbz_signal"},{"foreignKeys":[],"columns":[{"size":20,"name":"id","type":"BIGINT UNSIGNED"},{"size":100,"name":"subscription_id","type":"VARCHAR"},{"size":19,"name":"start_time","type":"DATETIME"},{"size":10,"name":"country","type":"VARCHAR"},{"size":50,"name":"status","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":19,"name":"updated_on","type":"DATETIME"}],"table_name":"deferred_subscriptions"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":19,"name":"created_date","type":"DATETIME"},{"size":19,"name":"last_modified_date","type":"DATETIME"},{"size":1,"name":"locked","type":"BIT"},{"size":255,"name":"locked_by","type":"VARCHAR"}],"table_name":"distributed_lock"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":255,"name":"partner_subscription_id","type":"VARCHAR"},{"size":255,"name":"ref_subscription_id","type":"VARCHAR"},{"size":255,"name":"status","type":"VARCHAR"},{"size":19,"name":"updated_on","type":"DATETIME"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"flipkart_partner_subscription"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":255,"name":"status","type":"VARCHAR"},{"size":19,"name":"expiry_date","type":"DATETIME"},{"size":255,"name":"ref_subscription_id","type":"VARCHAR"},{"size":255,"name":"partner_subscription_id","type":"VARCHAR"},{"size":255,"name":"product_id","type":"VARCHAR"},{"size":255,"name":"purchase_token","type":"VARCHAR"},{"size":255,"name":"linked_purchase_token","type":"VARCHAR"},{"size":255,"name":"country","type":"VARCHAR"},{"size":2147483647,"name":"subscription_info","type":"LONGTEXT"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":19,"name":"updated_on","type":"DATETIME"},{"size":255,"name":"app_package_name","type":"VARCHAR"}],"table_name":"google_partner_subscriptions"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":255,"name":"subscription_id","type":"VARCHAR"},{"size":19,"name":"renew_date","type":"DATETIME"},{"size":255,"name":"old_order_id","type":"VARCHAR"},{"size":255,"name":"new_order_id","type":"VARCHAR"},{"size":255,"name":"old_plan_id","type":"VARCHAR"},{"size":255,"name":"new_plan_id","type":"VARCHAR"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"grandfathering_renewal_mapping"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":255,"name":"hid","type":"VARCHAR"},{"size":255,"name":"ref_order_id","type":"VARCHAR"},{"size":19,"name":"updated_on","type":"DATETIME"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"instrument_orders"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":255,"name":"country","type":"VARCHAR"},{"size":19,"name":"created_date","type":"DATETIME"},{"size":19,"name":"invoice_number","type":"BIGINT"},{"size":255,"name":"ref_order_id","type":"VARCHAR"}],"table_name":"invoice"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":255,"name":"hid","type":"VARCHAR"},{"size":255,"name":"mobile_number","type":"VARCHAR"},{"size":255,"name":"partner_subscription_id","type":"VARCHAR"},{"size":255,"name":"pricing_plan","type":"VARCHAR"},{"size":19,"name":"updated_on","type":"DATETIME"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"jio_duplicate_subscriptions"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":255,"name":"partner_subscription_id","type":"VARCHAR"},{"size":255,"name":"ref_subscription_id","type":"VARCHAR"},{"size":255,"name":"status","type":"VARCHAR"},{"size":19,"name":"updated_on","type":"DATETIME"},{"size":19,"name":"expiry_date","type":"DATETIME"},{"size":19,"name":"start_date","type":"DATETIME"},{"size":255,"name":"subscriber_id","type":"VARCHAR"},{"size":4096,"name":"token","type":"VARCHAR"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"jio_partner_subscriptions"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":255,"name":"final_hid","type":"VARCHAR"},{"size":255,"name":"old_hid","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"merge_log"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":255,"name":"partner_subscription_id","type":"VARCHAR"},{"size":255,"name":"ref_subscription_id","type":"VARCHAR"},{"size":255,"name":"status","type":"VARCHAR"},{"size":19,"name":"updated_on","type":"DATETIME"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"mobikwik_partner_subscriptions"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":255,"name":"final_hid","type":"VARCHAR"},{"size":255,"name":"old_hid","type":"VARCHAR"},{"size":255,"name":"subscription_id","type":"VARCHAR"},{"size":45,"name":"partner","type":"VARCHAR"},{"size":45,"name":"transfer_type","type":"VARCHAR"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"move_subscription_log"},{"foreignKeys":[{"fk_column":"order_id","pk_table":"orders","pk_column":"id"}],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":2147483647,"name":"switch_meta","type":"LONGTEXT"},{"size":255,"name":"order_id","type":"VARCHAR"}],"table_name":"order_transitions"},{"foreignKeys":[{"fk_column":"subscription_id","pk_table":"subscriptions","pk_column":"id"}],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":255,"name":"order_type","type":"VARCHAR"},{"size":255,"name":"payment_id","type":"VARCHAR"},{"size":255,"name":"status","type":"VARCHAR"},{"size":19,"name":"updated_on","type":"DATETIME"},{"size":255,"name":"subscription_id","type":"VARCHAR"},{"size":255,"name":"msg_id","type":"VARCHAR"},{"size":255,"name":"coupon_id","type":"VARCHAR"},{"size":2147483647,"name":"payment_meta","type":"LONGTEXT"},{"size":255,"name":"renewal_id","type":"VARCHAR"},{"size":255,"name":"tax_currency","type":"VARCHAR"},{"size":19,"name":"tax_value","type":"BIGINT"},{"size":255,"name":"transaction_currency","type":"VARCHAR"},{"size":19,"name":"transaction_value","type":"BIGINT"},{"size":19,"name":"end_date","type":"DATETIME"},{"size":19,"name":"start_date","type":"DATETIME"},{"size":255,"name":"order_meta_id","type":"VARCHAR"},{"size":255,"name":"offer_id","type":"VARCHAR"},{"size":255,"name":"partner_plan_id","type":"VARCHAR"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"orders"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":2048,"name":"order_details","type":"VARCHAR"},{"size":255,"name":"order_type","type":"VARCHAR"},{"size":19,"name":"updated_on","type":"DATETIME"},{"size":255,"name":"currency","type":"VARCHAR"},{"size":19,"name":"discount_value","type":"BIGINT"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"orders_meta"},{"foreignKeys":[{"fk_column":"coupon_id","pk_table":"coupons","pk_column":"id"}],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":255,"name":"commercial_pack","type":"VARCHAR"},{"size":255,"name":"family_pack","type":"VARCHAR"},{"size":255,"name":"serial_number","type":"VARCHAR"},{"size":255,"name":"coupon_id","type":"VARCHAR"},{"size":10,"name":"billing_frequency","type":"INT"},{"size":255,"name":"billing_interval_unit","type":"VARCHAR"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"pack_specific_coupons"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":255,"name":"api_key","type":"VARCHAR"},{"size":255,"name":"client_api_key","type":"VARCHAR"},{"size":255,"name":"end_point","type":"VARCHAR"},{"size":10,"name":"partner","type":"INT"}],"table_name":"partner_accounts"},{"foreignKeys":[{"fk_column":"partner_configuration_name","pk_table":"partner_configurations","pk_column":"name"}],"columns":[{"size":255,"name":"partner_configuration_name","type":"VARCHAR"},{"size":255,"name":"pvalue","type":"VARCHAR"},{"size":255,"name":"pkey","type":"VARCHAR"}],"table_name":"partner_configuration_params"},{"foreignKeys":[],"columns":[{"size":255,"name":"name","type":"VARCHAR"}],"table_name":"partner_configurations"},{"foreignKeys":[{"fk_column":"subscription_id","pk_table":"subscriptions","pk_column":"id"}],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":255,"name":"partner_name","type":"VARCHAR"},{"size":255,"name":"subscription_id","type":"VARCHAR"},{"size":255,"name":"partner_subscription_id","type":"VARCHAR"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"partner_subscriptions"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":255,"name":"event","type":"VARCHAR"},{"size":255,"name":"from_state","type":"VARCHAR"},{"size":19,"name":"next_retry_on","type":"DATETIME"},{"size":255,"name":"ref_subscription_id","type":"VARCHAR"},{"size":255,"name":"to_state","type":"VARCHAR"},{"size":10,"name":"total_attempts","type":"INT"},{"size":19,"name":"updated_on","type":"DATETIME"},{"size":255,"name":"webhook_notification_status","type":"VARCHAR"},{"size":255,"name":"ref_order_id","type":"VARCHAR"},{"size":255,"name":"state_machine_type","type":"VARCHAR"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"partner_webhook_notifications"},{"foreignKeys":[{"fk_column":"payment_mode_id","pk_table":"payment_modes","pk_column":"id"},{"fk_column":"payment_provider_id","pk_table":"payment_providers","pk_column":"id"},{"fk_column":"payment_processor_id","pk_table":"payment_processors","pk_column":"id"}],"columns":[{"size":19,"name":"id","type":"BIGINT"},{"size":255,"name":"country","type":"VARCHAR"},{"size":1,"name":"is_enabled","type":"BIT"},{"size":255,"name":"platform","type":"VARCHAR"},{"size":19,"name":"payment_mode_id","type":"BIGINT"},{"size":19,"name":"payment_processor_id","type":"BIGINT"},{"size":19,"name":"payment_provider_id","type":"BIGINT"}],"table_name":"payment_method_configs"},{"foreignKeys":[{"fk_column":"payment_mode_id","pk_table":"payment_modes","pk_column":"id"}],"columns":[{"size":19,"name":"payment_mode_id","type":"BIGINT"},{"size":255,"name":"pvalue","type":"VARCHAR"},{"size":255,"name":"pkey","type":"VARCHAR"}],"table_name":"payment_mode_meta"},{"foreignKeys":[],"columns":[{"size":19,"name":"id","type":"BIGINT"},{"size":255,"name":"name","type":"VARCHAR"},{"size":255,"name":"pricing_plan_id","type":"VARCHAR"},{"size":10,"name":"priority","type":"INT"}],"table_name":"payment_modes"},{"foreignKeys":[{"fk_column":"payment_processor_id","pk_table":"payment_processors","pk_column":"id"}],"columns":[{"size":19,"name":"payment_processor_id","type":"BIGINT"},{"size":255,"name":"pvalue","type":"VARCHAR"},{"size":255,"name":"pkey","type":"VARCHAR"}],"table_name":"payment_processor_meta"},{"foreignKeys":[],"columns":[{"size":19,"name":"id","type":"BIGINT"},{"size":255,"name":"name","type":"VARCHAR"},{"size":255,"name":"payment_provider_id","type":"VARCHAR"},{"size":10,"name":"priority","type":"INT"}],"table_name":"payment_processors"},{"foreignKeys":[{"fk_column":"payment_provider_id","pk_table":"payment_providers","pk_column":"id"}],"columns":[{"size":19,"name":"payment_provider_id","type":"BIGINT"},{"size":255,"name":"pvalue","type":"VARCHAR"},{"size":255,"name":"pkey","type":"VARCHAR"}],"table_name":"payment_provider_meta"},{"foreignKeys":[],"columns":[{"size":19,"name":"id","type":"BIGINT"},{"size":255,"name":"name","type":"VARCHAR"},{"size":255,"name":"payment_mode_id","type":"VARCHAR"},{"size":10,"name":"priority","type":"INT"}],"table_name":"payment_providers"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":255,"name":"partner_subscription_id","type":"VARCHAR"},{"size":255,"name":"ref_subscription_id","type":"VARCHAR"},{"size":255,"name":"status","type":"VARCHAR"},{"size":19,"name":"updated_on","type":"DATETIME"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"paytm_partner_subscriptions"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":19,"name":"expiry_date","type":"DATETIME"},{"size":255,"name":"partner_subscription_id","type":"VARCHAR"},{"size":255,"name":"ref_subscription_id","type":"VARCHAR"},{"size":19,"name":"start_date","type":"DATETIME"},{"size":255,"name":"status","type":"VARCHAR"},{"size":255,"name":"subscriber_id","type":"VARCHAR"},{"size":19,"name":"updated_on","type":"DATETIME"},{"size":255,"name":"vendor","type":"VARCHAR"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"payu_partner_subscriptions"},{"foreignKeys":[],"columns":[{"size":19,"name":"id","type":"BIGINT"},{"size":255,"name":"country_code","type":"VARCHAR"},{"size":1,"name":"is_enabled","type":"BIT"},{"size":255,"name":"platform","type":"VARCHAR"},{"size":255,"name":"pricing_plan_id","type":"VARCHAR"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"pricing_plan_configs"},{"foreignKeys":[{"fk_column":"pricing_plan_id","pk_table":"pricing_plans","pk_column":"id"}],"columns":[{"size":255,"name":"pricing_plan_id","type":"VARCHAR"},{"size":255,"name":"pvalue","type":"VARCHAR"},{"size":255,"name":"pkey","type":"VARCHAR"},{"size":64,"name":"language","type":"VARCHAR"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"pricing_plan_meta"},{"foreignKeys":[],"columns":[{"size":19,"name":"id","type":"BIGINT"},{"size":255,"name":"country","type":"VARCHAR"},{"size":255,"name":"family_name","type":"VARCHAR"},{"size":1,"name":"is_enabled","type":"BIT"},{"size":255,"name":"platform","type":"VARCHAR"},{"size":255,"name":"tag_name","type":"VARCHAR"},{"size":255,"name":"tag_type","type":"VARCHAR"},{"size":255,"name":"from_commercial_package_id","type":"VARCHAR"},{"size":255,"name":"to_commercial_package_id","type":"VARCHAR"},{"size":10,"name":"priority","type":"INT"}],"table_name":"pricing_plan_tags"},{"foreignKeys":[{"fk_column":"subscription_type_id","pk_table":"subscription_types","pk_column":"id"}],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":255,"name":"currency","type":"VARCHAR"},{"size":19,"name":"value","type":"BIGINT"},{"size":10,"name":"billing_frequency","type":"INT"},{"size":255,"name":"billing_interval_unit","type":"VARCHAR"},{"size":255,"name":"country","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":1,"name":"inclusive_of_tax","type":"BIT"},{"size":255,"name":"name","type":"VARCHAR"},{"size":255,"name":"plan_type","type":"VARCHAR"},{"size":1,"name":"si","type":"BIT"},{"size":255,"name":"status","type":"VARCHAR"},{"size":10,"name":"trial_period_frequency","type":"INT"},{"size":255,"name":"trial_period_unit","type":"VARCHAR"},{"size":19,"name":"updated_on","type":"DATETIME"},{"size":255,"name":"subscription_type_id","type":"VARCHAR"},{"size":10,"name":"refund_window_frequency","type":"INT"},{"size":255,"name":"refund_window_unit","type":"VARCHAR"},{"size":32,"name":"partner","type":"VARCHAR"},{"size":1,"name":"delayed_activation_allowed","type":"BIT"}],"table_name":"pricing_plans"},{"foreignKeys":[{"fk_column":"referral_id","pk_table":"referrals","pk_column":"id"}],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":255,"name":"benefit_id","type":"VARCHAR"},{"size":255,"name":"benefit_type","type":"VARCHAR"},{"size":19,"name":"created_on","type":"TIMESTAMP"},{"size":19,"name":"updated_on","type":"TIMESTAMP"},{"size":255,"name":"user_id","type":"VARCHAR"},{"size":255,"name":"referral_id","type":"VARCHAR"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"referees"},{"foreignKeys":[{"fk_column":"coupon_id","pk_table":"coupons","pk_column":"id"}],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":255,"name":"order_id","type":"VARCHAR"},{"size":255,"name":"redeemed_against_id","type":"VARCHAR"},{"size":19,"name":"updated_on","type":"DATETIME"},{"size":255,"name":"coupon_id","type":"VARCHAR"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"referral_coupon_application"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":255,"name":"code","type":"VARCHAR"},{"size":19,"name":"created_on","type":"TIMESTAMP"},{"size":255,"name":"referee_benefit_id","type":"VARCHAR"},{"size":255,"name":"referee_benefit_type","type":"VARCHAR"},{"size":255,"name":"referrer_benefit_id","type":"VARCHAR"},{"size":255,"name":"referrer_benefit_type","type":"VARCHAR"},{"size":255,"name":"state","type":"VARCHAR"},{"size":255,"name":"type","type":"VARCHAR"},{"size":19,"name":"updated_on","type":"TIMESTAMP"},{"size":255,"name":"user_id","type":"VARCHAR"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"referrals"},{"foreignKeys":[{"fk_column":"order_id","pk_table":"orders","pk_column":"id"}],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":255,"name":"transaction_currency","type":"VARCHAR"},{"size":19,"name":"transaction_value","type":"BIGINT"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":255,"name":"payment_id","type":"VARCHAR"},{"size":2147483647,"name":"refund_meta","type":"LONGTEXT"},{"size":10,"name":"refund_type","type":"INT"},{"size":255,"name":"status","type":"VARCHAR"},{"size":19,"name":"updated_on","type":"DATETIME"},{"size":255,"name":"order_id","type":"VARCHAR"},{"size":255,"name":"card_hash","type":"VARCHAR"},{"size":2048,"name":"reason","type":"VARCHAR"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"refund_orders"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":10,"name":"max_attempts","type":"INT"},{"size":19,"name":"next_retry_on","type":"DATETIME"},{"size":255,"name":"renewal_status","type":"VARCHAR"},{"size":255,"name":"subscription_id","type":"VARCHAR"},{"size":10,"name":"total_attempts","type":"INT"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"renew_subscription"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":255,"name":"partner_subscription_id","type":"VARCHAR"},{"size":255,"name":"payment_token","type":"VARCHAR"},{"size":255,"name":"product_id","type":"VARCHAR"},{"size":255,"name":"ref_subscription_id","type":"VARCHAR"},{"size":255,"name":"roku_id","type":"VARCHAR"},{"size":255,"name":"status","type":"VARCHAR"},{"size":2147483647,"name":"user_info","type":"LONGTEXT"},{"size":19,"name":"expiry_date","type":"DATETIME"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"roku_partner_subscriptions"},{"foreignKeys":[],"columns":[{"size":255,"name":"smp_key","type":"VARCHAR"},{"size":2147483647,"name":"smp_value","type":"LONGTEXT"},{"size":50,"name":"smp_type","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":19,"name":"updated_on","type":"DATETIME"}],"table_name":"smp_plan_data"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":255,"name":"context_type","type":"VARCHAR"},{"size":255,"name":"property_name","type":"VARCHAR"},{"size":255,"name":"property_value","type":"VARCHAR"},{"size":255,"name":"sub_context_type","type":"VARCHAR"},{"size":255,"name":"type","type":"VARCHAR"},{"size":64,"name":"language","type":"VARCHAR"}],"table_name":"spotlight_meta"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":255,"name":"commercial_pack_id","type":"VARCHAR"},{"size":255,"name":"pack_to_renew","type":"VARCHAR"},{"size":255,"name":"type","type":"VARCHAR"},{"size":255,"name":"coupon_id","type":"VARCHAR"},{"size":255,"name":"country","type":"VARCHAR"},{"size":255,"name":"platform","type":"VARCHAR"}],"table_name":"spotlight_pack_data"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":255,"name":"partner_subscription_id","type":"VARCHAR"},{"size":255,"name":"ref_subscription_id","type":"VARCHAR"},{"size":255,"name":"status","type":"VARCHAR"},{"size":19,"name":"updated_on","type":"DATETIME"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"starhub_partner_subscriptions"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":22,"name":"amount_off","type":"DOUBLE"},{"size":255,"name":"country","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":255,"name":"currency","type":"VARCHAR"},{"size":10,"name":"max_redemptions","type":"INT"},{"size":22,"name":"percent_off","type":"DOUBLE"},{"size":19,"name":"redeem_by","type":"DATETIME"},{"size":10,"name":"times_redeemed","type":"INT"},{"size":19,"name":"updated_on","type":"DATETIME"}],"table_name":"stripe_coupons"},{"foreignKeys":[],"columns":[{"size":255,"name":"config_key","type":"VARCHAR"},{"size":2147483647,"name":"config_value","type":"LONGTEXT"},{"size":19,"name":"created_on","type":"TIMESTAMP"},{"size":19,"name":"updated_on","type":"TIMESTAMP"}],"table_name":"subscription_configurations"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":255,"name":"instrument_id","type":"VARCHAR"},{"size":3,"name":"is_recurring","type":"TINYINT"},{"size":255,"name":"payment_mode","type":"VARCHAR"},{"size":255,"name":"provider","type":"VARCHAR"},{"size":255,"name":"subscription_id","type":"VARCHAR"},{"size":19,"name":"updated_on","type":"DATETIME"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"subscription_instruments"},{"foreignKeys":[{"fk_column":"subscription_id","pk_table":"subscriptions","pk_column":"id"}],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":255,"name":"event","type":"VARCHAR"},{"size":255,"name":"from_state","type":"VARCHAR"},{"size":255,"name":"meta","type":"VARCHAR"},{"size":255,"name":"to_state","type":"VARCHAR"},{"size":255,"name":"subscription_id","type":"VARCHAR"},{"size":19,"name":"next_retry_on","type":"DATETIME"},{"size":10,"name":"total_attempts","type":"INT"},{"size":10,"name":"webhook_status","type":"INT"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"subscription_logs"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":255,"name":"city","type":"VARCHAR"},{"size":255,"name":"country","type":"VARCHAR"},{"size":255,"name":"ref_subscription_id","type":"VARCHAR"},{"size":255,"name":"state","type":"VARCHAR"},{"size":255,"name":"zip_code","type":"VARCHAR"}],"table_name":"subscription_params"},{"foreignKeys":[{"fk_column":"subscription_type_id","pk_table":"subscription_types","pk_column":"id"}],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":255,"name":"event","type":"VARCHAR"},{"size":255,"name":"from_state","type":"VARCHAR"},{"size":255,"name":"to_state","type":"VARCHAR"},{"size":255,"name":"subscription_type_id","type":"VARCHAR"}],"table_name":"subscription_type_logs"},{"foreignKeys":[{"fk_column":"subscription_type_id","pk_table":"subscription_types","pk_column":"id"}],"columns":[{"size":255,"name":"subscription_type_id","type":"VARCHAR"},{"size":255,"name":"pvalue","type":"VARCHAR"},{"size":255,"name":"pkey","type":"VARCHAR"}],"table_name":"subscription_type_meta"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":255,"name":"country","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":255,"name":"name","type":"VARCHAR"},{"size":255,"name":"status","type":"VARCHAR"},{"size":19,"name":"updated_on","type":"DATETIME"}],"table_name":"subscription_types"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":19,"name":"expiry_time","type":"DATETIME"},{"size":255,"name":"hid","type":"VARCHAR"},{"size":255,"name":"msg_id","type":"VARCHAR"},{"size":255,"name":"status","type":"VARCHAR"},{"size":19,"name":"updated_on","type":"DATETIME"},{"size":255,"name":"pricing_plan_id","type":"VARCHAR"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"subscriptions"},{"foreignKeys":[],"columns":[{"size":10,"name":"id","type":"INT"},{"size":255,"name":"switch_type","type":"VARCHAR"},{"size":255,"name":"from_id","type":"VARCHAR"},{"size":255,"name":"to_id","type":"VARCHAR"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"switch_map"},{"foreignKeys":[{"fk_column":"order_id","pk_table":"orders","pk_column":"id"}],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":2147483647,"name":"switch_meta","type":"LONGTEXT"},{"size":255,"name":"order_id","type":"VARCHAR"},{"size":255,"name":"balance_currency","type":"VARCHAR"},{"size":19,"name":"balance_amount","type":"BIGINT"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"switch_transitions"},{"foreignKeys":[],"columns":[{"size":255,"name":"upc","type":"VARCHAR"},{"size":255,"name":"country","type":"VARCHAR"},{"size":255,"name":"pricing_plan_id","type":"VARCHAR"}],"table_name":"tapp_pricing_plan_subscription_mappings"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":255,"name":"partner_subscription_id","type":"VARCHAR"},{"size":255,"name":"ref_subscription_id","type":"VARCHAR"},{"size":255,"name":"status","type":"VARCHAR"},{"size":19,"name":"updated_on","type":"DATETIME"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"tata_sky_partner_subscriptions"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":255,"name":"order_id","type":"VARCHAR"},{"size":65535,"name":"tax_details","type":"TEXT"},{"size":22,"name":"tax_percentage","type":"DOUBLE"},{"size":255,"name":"tax_type","type":"VARCHAR"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"tax_details"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":255,"name":"partner_subscription_id","type":"VARCHAR"},{"size":255,"name":"ref_subscription_id","type":"VARCHAR"},{"size":255,"name":"status","type":"VARCHAR"},{"size":19,"name":"updated_on","type":"DATETIME"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"telkom_partner_subscription"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":255,"name":"partner_subscription_id","type":"VARCHAR"},{"size":255,"name":"ref_subscription_id","type":"VARCHAR"},{"size":255,"name":"status","type":"VARCHAR"},{"size":19,"name":"updated_on","type":"DATETIME"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"telkomsel_partner_subscriptions"},{"foreignKeys":[],"columns":[{"size":100,"name":"order_id","type":"VARCHAR"}],"table_name":"temp_pay_orders"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":255,"name":"hid","type":"VARCHAR"},{"size":255,"name":"instrument_id","type":"VARCHAR"},{"size":1,"name":"is_primary","type":"BIT"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"user_instruments"},{"foreignKeys":[],"columns":[{"size":255,"name":"id","type":"VARCHAR"},{"size":19,"name":"created_on","type":"DATETIME"},{"size":255,"name":"partner_subscription_id","type":"VARCHAR"},{"size":255,"name":"ref_subscription_id","type":"VARCHAR"},{"size":255,"name":"status","type":"VARCHAR"},{"size":19,"name":"updated_on","type":"DATETIME"},{"size":10,"name":"country","type":"VARCHAR"}],"table_name":"vodafone_partner_subscriptions"}]
+[
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "api_key",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "client_api_key",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "client_end_point",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "partner",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "accounts"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "partner_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "ref_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "status",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "act_partner_subscriptions"
+  },
+  {
+    "foreignKeys": [
+      {
+        "fk_column": "ref_subscription_id",
+        "pk_table": "subscriptions",
+        "pk_column": "id"
+      }
+    ],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "status",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "ref_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "partner_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "expiry_date",
+        "type": "DATETIME"
+      },
+      {
+        "size": 19,
+        "name": "start_date",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "subscriber_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 4096,
+        "name": "token",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 4096,
+        "name": "callback_endpoint",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "airtel_partner_subscriptions"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 4096,
+        "name": "callback_endpoint",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "partner_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "ref_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "status",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "airteldthpartner_subscriptions"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 10,
+        "name": "hour",
+        "type": "INT"
+      },
+      {
+        "size": 10,
+        "name": "enable_partners",
+        "type": "INT"
+      }
+    ],
+    "table_name": "alerts"
+  },
+  {
+    "foreignKeys": [
+      {
+        "fk_column": "pricing_plan_id",
+        "pk_table": "pricing_plans",
+        "pk_column": "id"
+      }
+    ],
+    "columns": [
+      {
+        "size": 255,
+        "name": "platform",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "payment_mode",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 1,
+        "name": "is_enabled",
+        "type": "BIT"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "pricing_plan_id",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "allowed_payment_methods"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "apple_product_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 19,
+        "name": "expiry_date",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "is_trial_period",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "last_transaction_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "partner_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 2147483647,
+        "name": "receipt",
+        "type": "LONGTEXT"
+      },
+      {
+        "size": 255,
+        "name": "ref_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "status",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "country",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "renew_partner_plan_id",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "apple_partner_subscriptions"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "status",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "next_retry_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "order_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "total_attempts",
+        "type": "INT"
+      },
+      {
+        "size": 10,
+        "name": "max_attempts",
+        "type": "INT"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 65535,
+        "name": "meta",
+        "type": "TEXT"
+      }
+    ],
+    "table_name": "billing_attempts"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "meta",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "partner_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "ref_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "status",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "zone",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "bsnl_partner_subscriptions"
+  },
+  {
+    "foreignKeys": [
+      {
+        "fk_column": "subscription_id",
+        "pk_table": "subscriptions",
+        "pk_column": "id"
+      },
+      {
+        "fk_column": "order_id",
+        "pk_table": "orders",
+        "pk_column": "id"
+      }
+    ],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "cancel_reason",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "order_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "cancel_orders"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "client_metakey",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 65535,
+        "name": "client_metavalue",
+        "type": "TEXT"
+      }
+    ],
+    "table_name": "clients_pricing_plans_meta"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 31,
+        "name": "config_type",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "id",
+        "type": "BIGINT"
+      },
+      {
+        "size": 1,
+        "name": "enabled",
+        "type": "BIT"
+      },
+      {
+        "size": 255,
+        "name": "pricing_plan",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "communication_configuration"
+  },
+  {
+    "foreignKeys": [
+      {
+        "fk_column": "communication_template_id",
+        "pk_table": "communication_template",
+        "pk_column": "id"
+      },
+      {
+        "fk_column": "communication_configuration_id",
+        "pk_table": "communication_configuration",
+        "pk_column": "id"
+      }
+    ],
+    "columns": [
+      {
+        "size": 19,
+        "name": "communication_configuration_id",
+        "type": "BIGINT"
+      },
+      {
+        "size": 255,
+        "name": "communication_template_id",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "communication_configuration_template"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 19,
+        "name": "id",
+        "type": "BIGINT"
+      },
+      {
+        "size": 50,
+        "name": "from_state",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 50,
+        "name": "to_state",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 50,
+        "name": "event",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 50,
+        "name": "plan_type",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "notification_types",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "message_type",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 1,
+        "name": "enabled",
+        "type": "BIT"
+      }
+    ],
+    "table_name": "communication_mappings"
+  },
+  {
+    "foreignKeys": [
+      {
+        "fk_column": "communication_template_meta_id",
+        "pk_table": "communication_template_meta",
+        "pk_column": "id"
+      }
+    ],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "country_code",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "message_type",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "notification_type",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "communication_template_meta_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 1,
+        "name": "enabled",
+        "type": "BIT"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "communication_template"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 2048,
+        "name": "attributes",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "path",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      }
+    ],
+    "table_name": "communication_template_meta"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "amount_off_currency",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "amount_off_value",
+        "type": "BIGINT"
+      },
+      {
+        "size": 255,
+        "name": "country",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "coupon_category",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "coupon_type",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "duration_type",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "extension_date",
+        "type": "DATETIME"
+      },
+      {
+        "size": 10,
+        "name": "extension_days",
+        "type": "INT"
+      },
+      {
+        "size": 10,
+        "name": "max_redemptions",
+        "type": "INT"
+      },
+      {
+        "size": 255,
+        "name": "name",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "percent_off",
+        "type": "INT"
+      },
+      {
+        "size": 19,
+        "name": "redeem_by",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "status",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "times_redeemed",
+        "type": "INT"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      }
+    ],
+    "table_name": "coupons"
+  },
+  {
+    "foreignKeys": [
+      {
+        "fk_column": "coupon_id",
+        "pk_table": "coupons",
+        "pk_column": "id"
+      }
+    ],
+    "columns": [
+      {
+        "size": 255,
+        "name": "coupon_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 2147483647,
+        "name": "meta",
+        "type": "LONGTEXT"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "coupons_meta"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 1,
+        "name": "acknowledgement",
+        "type": "BIT"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 65535,
+        "name": "exception",
+        "type": "TEXT"
+      },
+      {
+        "size": 255,
+        "name": "hid",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "data_sync_failures"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 64,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 32,
+        "name": "type",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 2048,
+        "name": "data",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "dbz_signal"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 20,
+        "name": "id",
+        "type": "BIGINT UNSIGNED"
+      },
+      {
+        "size": 100,
+        "name": "subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "start_time",
+        "type": "DATETIME"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 50,
+        "name": "status",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      }
+    ],
+    "table_name": "deferred_subscriptions"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_date",
+        "type": "DATETIME"
+      },
+      {
+        "size": 19,
+        "name": "last_modified_date",
+        "type": "DATETIME"
+      },
+      {
+        "size": 1,
+        "name": "locked",
+        "type": "BIT"
+      },
+      {
+        "size": 255,
+        "name": "locked_by",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "distributed_lock"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "partner_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "ref_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "status",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "flipkart_partner_subscription"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "status",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "expiry_date",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "ref_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "partner_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "product_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "purchase_token",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "linked_purchase_token",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "country",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 2147483647,
+        "name": "subscription_info",
+        "type": "LONGTEXT"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "app_package_name",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "google_partner_subscriptions"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "renew_date",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "old_order_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "new_order_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "old_plan_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "new_plan_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "grandfathering_renewal_mapping"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "hid",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "ref_order_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "instrument_orders"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "country",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_date",
+        "type": "DATETIME"
+      },
+      {
+        "size": 19,
+        "name": "invoice_number",
+        "type": "BIGINT"
+      },
+      {
+        "size": 255,
+        "name": "ref_order_id",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "invoice"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "hid",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "mobile_number",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "partner_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "pricing_plan",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "jio_duplicate_subscriptions"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "partner_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "ref_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "status",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 19,
+        "name": "expiry_date",
+        "type": "DATETIME"
+      },
+      {
+        "size": 19,
+        "name": "start_date",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "subscriber_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 4096,
+        "name": "token",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "jio_partner_subscriptions"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "final_hid",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "old_hid",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "merge_log"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "partner_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "ref_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "status",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "mobikwik_partner_subscriptions"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "final_hid",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "old_hid",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 45,
+        "name": "partner",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 45,
+        "name": "transfer_type",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "move_subscription_log"
+  },
+  {
+    "foreignKeys": [
+      {
+        "fk_column": "order_id",
+        "pk_table": "orders",
+        "pk_column": "id"
+      }
+    ],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 2147483647,
+        "name": "switch_meta",
+        "type": "LONGTEXT"
+      },
+      {
+        "size": 255,
+        "name": "order_id",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "order_transitions"
+  },
+  {
+    "foreignKeys": [
+      {
+        "fk_column": "subscription_id",
+        "pk_table": "subscriptions",
+        "pk_column": "id"
+      }
+    ],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "order_type",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "payment_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "status",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "msg_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "coupon_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 2147483647,
+        "name": "payment_meta",
+        "type": "LONGTEXT"
+      },
+      {
+        "size": 255,
+        "name": "renewal_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "tax_currency",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "tax_value",
+        "type": "BIGINT"
+      },
+      {
+        "size": 255,
+        "name": "transaction_currency",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "transaction_value",
+        "type": "BIGINT"
+      },
+      {
+        "size": 19,
+        "name": "end_date",
+        "type": "DATETIME"
+      },
+      {
+        "size": 19,
+        "name": "start_date",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "order_meta_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "offer_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "partner_plan_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "orders"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 2048,
+        "name": "order_details",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "order_type",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "currency",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "discount_value",
+        "type": "BIGINT"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "orders_meta"
+  },
+  {
+    "foreignKeys": [
+      {
+        "fk_column": "coupon_id",
+        "pk_table": "coupons",
+        "pk_column": "id"
+      }
+    ],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "commercial_pack",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "family_pack",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "serial_number",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "coupon_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "billing_frequency",
+        "type": "INT"
+      },
+      {
+        "size": 255,
+        "name": "billing_interval_unit",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "pack_specific_coupons"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "api_key",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "client_api_key",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "end_point",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "partner",
+        "type": "INT"
+      }
+    ],
+    "table_name": "partner_accounts"
+  },
+  {
+    "foreignKeys": [
+      {
+        "fk_column": "partner_configuration_name",
+        "pk_table": "partner_configurations",
+        "pk_column": "name"
+      }
+    ],
+    "columns": [
+      {
+        "size": 255,
+        "name": "partner_configuration_name",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "pvalue",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "pkey",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "partner_configuration_params"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "name",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "partner_configurations"
+  },
+  {
+    "foreignKeys": [
+      {
+        "fk_column": "subscription_id",
+        "pk_table": "subscriptions",
+        "pk_column": "id"
+      }
+    ],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "partner_name",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "partner_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "partner_subscriptions"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "event",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "from_state",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "next_retry_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "ref_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "to_state",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "total_attempts",
+        "type": "INT"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "webhook_notification_status",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "ref_order_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "state_machine_type",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "partner_webhook_notifications"
+  },
+  {
+    "foreignKeys": [
+      {
+        "fk_column": "payment_mode_id",
+        "pk_table": "payment_modes",
+        "pk_column": "id"
+      },
+      {
+        "fk_column": "payment_provider_id",
+        "pk_table": "payment_providers",
+        "pk_column": "id"
+      },
+      {
+        "fk_column": "payment_processor_id",
+        "pk_table": "payment_processors",
+        "pk_column": "id"
+      }
+    ],
+    "columns": [
+      {
+        "size": 19,
+        "name": "id",
+        "type": "BIGINT"
+      },
+      {
+        "size": 255,
+        "name": "country",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 1,
+        "name": "is_enabled",
+        "type": "BIT"
+      },
+      {
+        "size": 255,
+        "name": "platform",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "payment_mode_id",
+        "type": "BIGINT"
+      },
+      {
+        "size": 19,
+        "name": "payment_processor_id",
+        "type": "BIGINT"
+      },
+      {
+        "size": 19,
+        "name": "payment_provider_id",
+        "type": "BIGINT"
+      }
+    ],
+    "table_name": "payment_method_configs"
+  },
+  {
+    "foreignKeys": [
+      {
+        "fk_column": "payment_mode_id",
+        "pk_table": "payment_modes",
+        "pk_column": "id"
+      }
+    ],
+    "columns": [
+      {
+        "size": 19,
+        "name": "payment_mode_id",
+        "type": "BIGINT"
+      },
+      {
+        "size": 255,
+        "name": "pvalue",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "pkey",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "payment_mode_meta"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 19,
+        "name": "id",
+        "type": "BIGINT"
+      },
+      {
+        "size": 255,
+        "name": "name",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "pricing_plan_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "priority",
+        "type": "INT"
+      }
+    ],
+    "table_name": "payment_modes"
+  },
+  {
+    "foreignKeys": [
+      {
+        "fk_column": "payment_processor_id",
+        "pk_table": "payment_processors",
+        "pk_column": "id"
+      }
+    ],
+    "columns": [
+      {
+        "size": 19,
+        "name": "payment_processor_id",
+        "type": "BIGINT"
+      },
+      {
+        "size": 255,
+        "name": "pvalue",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "pkey",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "payment_processor_meta"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 19,
+        "name": "id",
+        "type": "BIGINT"
+      },
+      {
+        "size": 255,
+        "name": "name",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "payment_provider_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "priority",
+        "type": "INT"
+      }
+    ],
+    "table_name": "payment_processors"
+  },
+  {
+    "foreignKeys": [
+      {
+        "fk_column": "payment_provider_id",
+        "pk_table": "payment_providers",
+        "pk_column": "id"
+      }
+    ],
+    "columns": [
+      {
+        "size": 19,
+        "name": "payment_provider_id",
+        "type": "BIGINT"
+      },
+      {
+        "size": 255,
+        "name": "pvalue",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "pkey",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "payment_provider_meta"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 19,
+        "name": "id",
+        "type": "BIGINT"
+      },
+      {
+        "size": 255,
+        "name": "name",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "payment_mode_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "priority",
+        "type": "INT"
+      }
+    ],
+    "table_name": "payment_providers"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "partner_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "ref_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "status",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "paytm_partner_subscriptions"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 19,
+        "name": "expiry_date",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "partner_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "ref_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "start_date",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "status",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "subscriber_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "vendor",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "payu_partner_subscriptions"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 19,
+        "name": "id",
+        "type": "BIGINT"
+      },
+      {
+        "size": 255,
+        "name": "country_code",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 1,
+        "name": "is_enabled",
+        "type": "BIT"
+      },
+      {
+        "size": 255,
+        "name": "platform",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "pricing_plan_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "pricing_plan_configs"
+  },
+  {
+    "foreignKeys": [
+      {
+        "fk_column": "pricing_plan_id",
+        "pk_table": "pricing_plans",
+        "pk_column": "id"
+      }
+    ],
+    "columns": [
+      {
+        "size": 255,
+        "name": "pricing_plan_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "pvalue",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "pkey",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 64,
+        "name": "language",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "pricing_plan_meta"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 19,
+        "name": "id",
+        "type": "BIGINT"
+      },
+      {
+        "size": 255,
+        "name": "country",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "family_name",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 1,
+        "name": "is_enabled",
+        "type": "BIT"
+      },
+      {
+        "size": 255,
+        "name": "platform",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "tag_name",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "tag_type",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "from_commercial_package_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "to_commercial_package_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "priority",
+        "type": "INT"
+      }
+    ],
+    "table_name": "pricing_plan_tags"
+  },
+  {
+    "foreignKeys": [
+      {
+        "fk_column": "subscription_type_id",
+        "pk_table": "subscription_types",
+        "pk_column": "id"
+      }
+    ],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "currency",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "value",
+        "type": "BIGINT"
+      },
+      {
+        "size": 10,
+        "name": "billing_frequency",
+        "type": "INT"
+      },
+      {
+        "size": 255,
+        "name": "billing_interval_unit",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "country",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 1,
+        "name": "inclusive_of_tax",
+        "type": "BIT"
+      },
+      {
+        "size": 255,
+        "name": "name",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "plan_type",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 1,
+        "name": "si",
+        "type": "BIT"
+      },
+      {
+        "size": 255,
+        "name": "status",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "trial_period_frequency",
+        "type": "INT"
+      },
+      {
+        "size": 255,
+        "name": "trial_period_unit",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "subscription_type_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "refund_window_frequency",
+        "type": "INT"
+      },
+      {
+        "size": 255,
+        "name": "refund_window_unit",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 32,
+        "name": "partner",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 1,
+        "name": "delayed_activation_allowed",
+        "type": "BIT"
+      }
+    ],
+    "table_name": "pricing_plans"
+  },
+  {
+    "foreignKeys": [
+      {
+        "fk_column": "referral_id",
+        "pk_table": "referrals",
+        "pk_column": "id"
+      }
+    ],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "benefit_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "benefit_type",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "TIMESTAMP"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "TIMESTAMP"
+      },
+      {
+        "size": 255,
+        "name": "user_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "referral_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "referees"
+  },
+  {
+    "foreignKeys": [
+      {
+        "fk_column": "coupon_id",
+        "pk_table": "coupons",
+        "pk_column": "id"
+      }
+    ],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "order_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "redeemed_against_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "coupon_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "referral_coupon_application"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "code",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "TIMESTAMP"
+      },
+      {
+        "size": 255,
+        "name": "referee_benefit_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "referee_benefit_type",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "referrer_benefit_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "referrer_benefit_type",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "state",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "type",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "TIMESTAMP"
+      },
+      {
+        "size": 255,
+        "name": "user_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "referrals"
+  },
+  {
+    "foreignKeys": [
+      {
+        "fk_column": "order_id",
+        "pk_table": "orders",
+        "pk_column": "id"
+      }
+    ],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "transaction_currency",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "transaction_value",
+        "type": "BIGINT"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "payment_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 2147483647,
+        "name": "refund_meta",
+        "type": "LONGTEXT"
+      },
+      {
+        "size": 10,
+        "name": "refund_type",
+        "type": "INT"
+      },
+      {
+        "size": 255,
+        "name": "status",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "order_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "card_hash",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 2048,
+        "name": "reason",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "refund_orders"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 10,
+        "name": "max_attempts",
+        "type": "INT"
+      },
+      {
+        "size": 19,
+        "name": "next_retry_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "renewal_status",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "total_attempts",
+        "type": "INT"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "renew_subscription"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "partner_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "payment_token",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "product_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "ref_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "roku_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "status",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 2147483647,
+        "name": "user_info",
+        "type": "LONGTEXT"
+      },
+      {
+        "size": 19,
+        "name": "expiry_date",
+        "type": "DATETIME"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "roku_partner_subscriptions"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "smp_key",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 2147483647,
+        "name": "smp_value",
+        "type": "LONGTEXT"
+      },
+      {
+        "size": 50,
+        "name": "smp_type",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      }
+    ],
+    "table_name": "smp_plan_data"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "context_type",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "property_name",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "property_value",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "sub_context_type",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "type",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 64,
+        "name": "language",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "spotlight_meta"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "commercial_pack_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "pack_to_renew",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "type",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "coupon_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "country",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "platform",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "spotlight_pack_data"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "partner_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "ref_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "status",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "starhub_partner_subscriptions"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 22,
+        "name": "amount_off",
+        "type": "DOUBLE"
+      },
+      {
+        "size": 255,
+        "name": "country",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "currency",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "max_redemptions",
+        "type": "INT"
+      },
+      {
+        "size": 22,
+        "name": "percent_off",
+        "type": "DOUBLE"
+      },
+      {
+        "size": 19,
+        "name": "redeem_by",
+        "type": "DATETIME"
+      },
+      {
+        "size": 10,
+        "name": "times_redeemed",
+        "type": "INT"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      }
+    ],
+    "table_name": "stripe_coupons"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "config_key",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 2147483647,
+        "name": "config_value",
+        "type": "LONGTEXT"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "TIMESTAMP"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "TIMESTAMP"
+      }
+    ],
+    "table_name": "subscription_configurations"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "instrument_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 3,
+        "name": "is_recurring",
+        "type": "TINYINT"
+      },
+      {
+        "size": 255,
+        "name": "payment_mode",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "provider",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "subscription_instruments"
+  },
+  {
+    "foreignKeys": [
+      {
+        "fk_column": "subscription_id",
+        "pk_table": "subscriptions",
+        "pk_column": "id"
+      }
+    ],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "event",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "from_state",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "meta",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "to_state",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "next_retry_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 10,
+        "name": "total_attempts",
+        "type": "INT"
+      },
+      {
+        "size": 10,
+        "name": "webhook_status",
+        "type": "INT"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "subscription_logs"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "city",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "country",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "ref_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "state",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "zip_code",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "subscription_params"
+  },
+  {
+    "foreignKeys": [
+      {
+        "fk_column": "subscription_type_id",
+        "pk_table": "subscription_types",
+        "pk_column": "id"
+      }
+    ],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "event",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "from_state",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "to_state",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "subscription_type_id",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "subscription_type_logs"
+  },
+  {
+    "foreignKeys": [
+      {
+        "fk_column": "subscription_type_id",
+        "pk_table": "subscription_types",
+        "pk_column": "id"
+      }
+    ],
+    "columns": [
+      {
+        "size": 255,
+        "name": "subscription_type_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "pvalue",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "pkey",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "subscription_type_meta"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "country",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "name",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "status",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      }
+    ],
+    "table_name": "subscription_types"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 19,
+        "name": "expiry_time",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "hid",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "msg_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "status",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "pricing_plan_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "subscriptions"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 10,
+        "name": "id",
+        "type": "INT"
+      },
+      {
+        "size": 255,
+        "name": "switch_type",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "from_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "to_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "switch_map"
+  },
+  {
+    "foreignKeys": [
+      {
+        "fk_column": "order_id",
+        "pk_table": "orders",
+        "pk_column": "id"
+      }
+    ],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 2147483647,
+        "name": "switch_meta",
+        "type": "LONGTEXT"
+      },
+      {
+        "size": 255,
+        "name": "order_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "balance_currency",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "balance_amount",
+        "type": "BIGINT"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "switch_transitions"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "upc",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "country",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "pricing_plan_id",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "tapp_pricing_plan_subscription_mappings"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "partner_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "ref_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "status",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "tata_sky_partner_subscriptions"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "order_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 65535,
+        "name": "tax_details",
+        "type": "TEXT"
+      },
+      {
+        "size": 22,
+        "name": "tax_percentage",
+        "type": "DOUBLE"
+      },
+      {
+        "size": 255,
+        "name": "tax_type",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "tax_details"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "partner_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "ref_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "status",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "telkom_partner_subscription"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "partner_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "ref_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "status",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "telkomsel_partner_subscriptions"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 100,
+        "name": "order_id",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "temp_pay_orders"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "hid",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "instrument_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 1,
+        "name": "is_primary",
+        "type": "BIT"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "user_instruments"
+  },
+  {
+    "foreignKeys": [],
+    "columns": [
+      {
+        "size": 255,
+        "name": "id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "created_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 255,
+        "name": "partner_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "ref_subscription_id",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 255,
+        "name": "status",
+        "type": "VARCHAR"
+      },
+      {
+        "size": 19,
+        "name": "updated_on",
+        "type": "DATETIME"
+      },
+      {
+        "size": 10,
+        "name": "country",
+        "type": "VARCHAR"
+      }
+    ],
+    "table_name": "vodafone_partner_subscriptions"
+  }
+]
