@@ -39,7 +39,7 @@ jobs:
         image: imharshshah/orchestration_service-github_action
         tags: latest
         registry: docker.io
-        dockerfile: Dockerfile
+        dockerfile: /Users/harshshah/Desktop/orchestration-service/Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
  
