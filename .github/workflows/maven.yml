@@ -15,10 +15,9 @@ on:
     branches: [ "main" ]
 
 jobs:
+  runs-on: ubuntu-latest
+  
   build:
-
-    runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 1.8
@@ -33,7 +32,7 @@ jobs:
   build-push docker image:
     steps:
     - name: Build & push Docker image
-      uses: mr-smithers-excellent/docker-build-push@v6
+    - uses: mr-smithers-excellent/docker-build-push@v6
       with:
         image: imharshshah/orchestration_service-github_action
         tags: latest
