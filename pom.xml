@@ -76,6 +76,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		<finalName>orchestration_service-github_action</finalName>
 	</build>
 
 </project>
