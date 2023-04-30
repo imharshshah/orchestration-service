@@ -28,6 +28,11 @@ public class GraphBuilderController {
     PathFinderNode pathFinderNode;
     PathFinderEdge pathFinderEdge;
 
+    @GetMapping("/health")
+    public void health(){
+        System.out.println("Welcome to GOA");
+    }
+
     @GetMapping("/build_payments_graph")
     public Map<String, Map<String, Map<String, String>>> buildGraphPayments() throws IOException{
         List<Table> tables = jsonParser.parse("payments_schema.json");
