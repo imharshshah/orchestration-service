@@ -1,13 +1,13 @@
 package com.hotstar.orchestration.orchestrationservice;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class OrchestrationServiceApplicationTests {
+public class OrchestrationServiceApplicationTests {
 
 	@Test
-	void contextLoads() {
+	public void contextLoads() {
 	}
 
 }
