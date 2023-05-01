@@ -31,4 +31,17 @@ jobs:
         dockerfile: Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
+      
+    - name: SSH into EC2 instance and deploy Docker image
+      uses: appleboy/ssh-action@master
+      with:
+        host: 34.235.117.157
+        username: ec2-user
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: 22
+        script: |
+          docker stop orchestration_service || true
+          docker rm orchestration_service || true
+          docker pull imharshshah/orchestration_service-github_action:latest
+          docker run -d -p 8082:8082 --name orchestration_service imharshshah/orchestration_service-github_action:latest
  
