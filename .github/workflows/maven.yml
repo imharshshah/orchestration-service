@@ -72,7 +72,7 @@ jobs:
     - name: Build & push Docker image
       uses: mr-smithers-excellent/docker-build-push@v6
       with:
-        image: orchestration_service-github_action
+        image: imharshshah/orchestration_service-github_action
         tags: latest
         registry: docker.io
         dockerfile: Dockerfile
