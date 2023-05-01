@@ -48,7 +48,7 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        image: imharshshah/orchestration_service-github_action
-        tags: latest
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/orchestration_service-github_action:latest
+
  
  
